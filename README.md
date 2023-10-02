@@ -1,5 +1,5 @@
 ## *Bulk Upload Microservice*
-The Bulk Upload Microservice is a RESTful API that allows users to upload Excel files containing data. This data is then processed and stored in a MySQL database and MongoDB. Sensitive information like Social Security Numbers (SSNs) is encrypted using an external API, and the encrypted IDs are stored in MySQL while the actual data is stored in MongoDB.
+The Bulk Upload Microservice is a RESTful API that allows users to upload Excel files containing credit card user data. This data is then processed and stored in a MySQL database and MongoDB. Sensitive information like customer ID's are encrypted using an external API, and the encrypted IDs are stored in MySQL while the actual data is stored in MongoDB.
 
 # *Features*
 Bulk Upload: Upload Excel files containing data for processing.
