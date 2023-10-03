@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @Table(name = "CUSTOMER_DATA")
-public class CustomerInfo {
+public class ComplaintInfo {
    @Id
    @NotNull
    private Long customerId;
@@ -32,4 +32,5 @@ public class CustomerInfo {
    private String occupationType;
    private LocalDate birthDate;
    private String complaintMessage;
+   private LocalDate createDate;
 }

@@ -25,4 +25,5 @@ public class Complaint {
     private String occupationType;
     private LocalDate birthDate;
     private String complaintMessage;
+    private LocalDate createDate;
 }
