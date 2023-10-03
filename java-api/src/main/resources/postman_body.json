@@ -1,0 +1,15 @@
+
+{
+  "customerId": 5021393,
+  "name": "John Bro",
+  "gender": "Male",
+  "income": "50000",
+  "incomeType": "Salary",
+  "highestQualification": "Bachelor's Degree",
+  "maritalStatus": "Single",
+  "housingType": "Apartment",
+  "occupationType": "Store Manager",
+  "birthDate": "1990-05-15",
+  "complaintMessage": "Agent lacks know how",
+  "createDate": "2023-10-04"
+}
