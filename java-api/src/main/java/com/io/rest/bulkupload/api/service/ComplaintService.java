@@ -89,4 +89,19 @@ public class ComplaintService {
         return ViewComplaintResponseVO.builder().complaint(complaintInfo).status("200")
                 .message("Successfully Updated").build();
     }
+
+    public ViewComplaintResponseVO getComplaint(LocalDate createDate, String name)
+    {
+        logger.info("View complaint for {} from " +createDate,name);
+        ComplaintInfo complaintInfo = null;
+        try {
+            complaintInfo = repo.getByCreateDateAndName(createDate, name);
+        } catch (EntityNotFoundException e)
+        {
+            logger.error("Error at updateComplaint method ");
+            e.printStackTrace();
+        }
+        return ViewComplaintResponseVO.builder().complaint(complaintInfo).status("200")
+                .message("Successfully Read").build();
+    }
 }

@@ -39,12 +39,8 @@ public class ComplaintController {
              @NotNull @PathVariable("name") String name,@RequestBody ComplaintInfo complaint)
     {
         //PARSE CREATEDATE FROM STRING TO LOCALDATE
-
         LocalDate date = LocalDate.parse(createDate);
         logger.info("PUT :  /complaint to update complaint");
-        System.out.println("Create Date is : " +createDate);
-        System.out.println("Name is : " +name);
-        System.out.println("Complaint is  : " +complaint);
         ViewComplaintResponseVO response = complaintService.updateComplaint(date,name,complaint);
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
@@ -55,5 +51,16 @@ public class ComplaintController {
         logger.info("POST : /complaint to create new complaint");
         ViewComplaintResponseVO response = complaintService.newComplaint(newComplaint);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/complaint/{createDate}/{name}")
+    public ResponseEntity<ViewComplaintResponseVO> viewComplaint(
+            @NotNull @PathVariable("createDate") String createDate, @PathVariable("name") String name)
+    {
+        logger.info("GET : /complaint to view complaint");
+        //PARSE CREATEDATE FROM STRING TO LOCALDATE
+        LocalDate date = LocalDate.parse(createDate);
+        ViewComplaintResponseVO response= complaintService.getComplaint(date,name);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
