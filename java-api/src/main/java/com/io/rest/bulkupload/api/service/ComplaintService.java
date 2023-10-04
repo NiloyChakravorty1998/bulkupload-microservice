@@ -61,13 +61,13 @@ public class ComplaintService {
                 .complaints(complaints).build();
     }
 
-    public ViewComplaintResponseVO updateComplaint(@NotNull String createDate,
+    public ViewComplaintResponseVO updateComplaint(@NotNull LocalDate createDate,
                                                    @NotNull String name, ComplaintInfo complaint)
     {
         ComplaintInfo complaintInfo = null;
         logger.info("Update complaint for {} from " +createDate,name);
         try {
-            complaintInfo = repo.getByCreateDateAndName(createDate.toString(), name);
+            complaintInfo = repo.getByCreateDateAndName(createDate, name);
         } catch (EntityNotFoundException e)
         {
             logger.error("Error at updateComplaint method ");

@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("/api")
 public class ComplaintController {
@@ -36,8 +38,14 @@ public class ComplaintController {
             (@NotNull @PathVariable("createDate") String createDate,
              @NotNull @PathVariable("name") String name,@RequestBody ComplaintInfo complaint)
     {
+        //PARSE CREATEDATE FROM STRING TO LOCALDATE
+
+        LocalDate date = LocalDate.parse(createDate);
         logger.info("PUT :  /complaint to update complaint");
-        ViewComplaintResponseVO response = complaintService.updateComplaint(createDate,name,complaint);
+        System.out.println("Create Date is : " +createDate);
+        System.out.println("Name is : " +name);
+        System.out.println("Complaint is  : " +complaint);
+        ViewComplaintResponseVO response = complaintService.updateComplaint(date,name,complaint);
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
