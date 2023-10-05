@@ -63,4 +63,5 @@ public class ComplaintController {
         ViewComplaintResponseVO response= complaintService.getComplaint(date,name);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
 }
